@@ -346,7 +346,6 @@ input[type="checkbox"]:checked::before {
   }
 }
 
-/* Style for the close button */
 .close-btn {
   position: absolute;
   top: 10px;
