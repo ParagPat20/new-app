@@ -22,9 +22,10 @@ Project Structure
 ```
 .
 ├── static
-│   └── index.html  # Your main HTML file
-├── server.py       # Main server script
-└── requirements.txt # List of dependencies
+│   └── index.html  
+│   └── styles.css
+│   └── script.js
+└── app.py       # Main server script
 ```
 Usage
 Clone the repository:
