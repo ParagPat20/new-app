@@ -1,5 +1,3 @@
-markdown
-Copy code
 # Standalone HTTP Server Application
 
 This project is a simple standalone HTTP server application that serves static files and provides a GUI using the `pywebview` library. It runs a local HTTP server and displays a web interface, allowing interaction with the server through a browser-like window.
