@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cocktail Order Management System</title>
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <div class="app-content">
+        <div class="app-topbar">
+          <div class="app-logo">
+            <img src="img/logo.png" alt="Logo" />
+          </div>
+        </div>
+        <div class="app-body">
+          <div class="app-sidebar">
+            <div class="navbar">
+              <a href="#" class="active">Find Cocktail</a>
+            </div>
+          </div>
+          <div class="app-pageview">
+            <div class="find-ing">
+              <div class="fi-top">
+                <div class="search-box">
+                  <div class="searchbar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input
+                      type="text"
+                      placeholder="Search Ingredients..."
+                      name="search"
+                    />
+                    <p>Selected Ingredients : <span>0/10</span></p>
+                  </div>
+                  <a href="#"><i class="fa-solid fa-plus"></i> Add New</a>
+                </div>
+                <div class="ing-filter">
+                  <a href="#" class="active">All Ingredients</a>
+                  <a href="#">Liquid</a>
+                  <a href="#">Liquor</a>
+                  <a href="#">Garnish</a>
+                  <a href="#">Other</a>
+                </div>
+              </div>
+              <div class="fi-bottom">
+                <div class="ing-box">
+                  <div class="ing-grid">
+                    <div id="ingredients-container"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
