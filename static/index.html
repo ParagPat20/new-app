@@ -15,6 +15,19 @@
     <div class="app">
       <div class="app-content">
         <div class="app-topbar">
+          <button class="close-btn" onclick="closeApp()">x</button>
+          <script>
+            // JavaScript function to close the application
+            async function closeApp() {
+                try {
+                    // Send a POST request to shutdown the server
+                    await fetch('/shutdown', { method: 'POST' });
+                    window.close();  // This should close the PyWebview window
+                } catch (error) {
+                    console.error("Error closing app:", error);
+                }
+            }
+        </script>
           <div class="app-logo">
             <img src="img/logo.png" alt="Logo" />
           </div>
