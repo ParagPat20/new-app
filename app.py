@@ -2,6 +2,7 @@ import os
 import threading
 from http.server import SimpleHTTPRequestHandler, HTTPServer
 import webview
+import tkinter as tk
 
 web_dir = os.path.join(os.path.dirname(__file__), 'static')
 os.chdir(web_dir)
@@ -26,11 +27,20 @@ def stop_server():
     if httpd:
         httpd.shutdown()
 
+def get_screen_size():
+    # Use tkinter to get screen dimensions
+    root = tk.Tk()
+    root.withdraw()  # Hide the root window
+    screen_width = root.winfo_screenwidth()
+    screen_height = root.winfo_screenheight()
+    root.destroy()
+    return screen_width, screen_height
+
 def create_window():
     global webview_window
 
-    # Get the screen resolution to set the window to full size
-    screen_width, screen_height = webview.screen.size
+    # Get the screen resolution
+    screen_width, screen_height = get_screen_size()
 
     # Create a bordered window that simulates maximization
     webview_window = webview.create_window(
