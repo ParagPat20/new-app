@@ -33,8 +33,8 @@ def start_electron_app():
     if platform.system() == "Windows":
         # For Windows, use the full path to the Electron executable
         electron_executable = r'C:\Users\LOQ\AppData\Roaming\npm\node_modules\electron\dist\electron.exe'
-    elif platform.system() == "Linux" and "raspberrypi" in platform.uname().machine.lower():
-        # For Raspberry Pi (Linux), just use 'electron' (assuming it's installed globally)
+    elif platform.system() == "Linux":
+        # For Linux, use just 'electron' (assuming it's installed globally)
         electron_executable = 'electron'
     else:
         raise EnvironmentError("Unsupported operating system")
@@ -44,7 +44,7 @@ def start_electron_app():
 
     # Wait until Electron app is closed
     electron_process.communicate()
-
+    
 if __name__ == "__main__":
     # Start the HTTP server in a separate thread
     http_thread = threading.Thread(target=start_http_server)
