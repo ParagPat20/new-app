@@ -5,9 +5,9 @@ let mainWindow;
 
 function createWindow() {
   mainWindow = new BrowserWindow({
-    width: 800,  // You can leave the width and height properties if you want to control the size too
+    width: 800,  // You can still set an initial size, but it will be overridden by maximized
     height: 600,
-    fullscreen: true,  // This makes the window fullscreen
+    maximized: true,  // This makes the window maximized instead of fullscreen
     webPreferences: {
       nodeIntegration: true,
       preload: path.join(__dirname, 'preload.js')  // If you're using a preload.js file
