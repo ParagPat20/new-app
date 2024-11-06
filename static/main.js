@@ -5,25 +5,26 @@ let mainWindow;
 
 function createWindow() {
   mainWindow = new BrowserWindow({
-    width: 1920,  // You can leave the width and height properties if you want to control the size too
-    height: 1080,
-    fullscreen: false,  // This makes the window fullscreen
+    width: 1920,  // Initial width, you can leave it as is or omit it since you're maximizing
+    height: 1080,  // Initial height, you can leave it as is or omit it since you're maximizing
+    fullscreen: false,  // This ensures the window is not in fullscreen mode
     webPreferences: {
       nodeIntegration: true,
       preload: path.join(__dirname, 'preload.js')  // If you're using a preload.js file
     }
   });
 
+  // Maximize the window
+  mainWindow.maximize();
+
   // Load your HTML file into the window
   mainWindow.loadURL('http://127.0.0.1:5000/index.html');
-
-  // Open the DevTools (optional)
-  // mainWindow.webContents.openDevTools();
 
   mainWindow.on('closed', () => {
     mainWindow = null;
   });
 }
+
 
 app.whenReady().then(createWindow);
 
