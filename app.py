@@ -28,13 +28,17 @@ def stop_server():
 
 def create_window():
     global webview_window
+
+    # Get the screen resolution to set the window to full size
+    screen_width, screen_height = webview.screen.size
+
+    # Create a bordered window that simulates maximization
     webview_window = webview.create_window(
         "Standalone HTTP Server Application",
         "http://127.0.0.1:5000/index.html",
-        width=1600,
-        height=900,
-        frameless=True,
-        fullscreen=True  # Start in fullscreen mode
+        width=screen_width,
+        height=screen_height,
+        frameless=False  # Border is enabled for better rendering
     )
 
     # Start the webview window
