@@ -73,3 +73,33 @@ function updateSelectedCount() {
   // Update the count display
   selectedCountElement.textContent = `${selectedCount}/10`;
 }
+
+// Function to handle focus-in and focus-out events
+function checkFocus(event) {
+  const inputs = document.querySelectorAll("input, textarea");
+  let isAnyFieldFocused = false;
+
+  // Check if the current target (focused element) is an input or textarea
+  if (event.type === 'focus') {
+    isAnyFieldFocused = true;
+  }
+
+  // Send POST request based on focus event type
+  if (isAnyFieldFocused) {
+    fetch('/focus-in', {
+      method: 'POST',
+    }).then(response => response.text())
+      .then(data => console.log(data));
+  } else {
+    fetch('/focus-out', {
+      method: 'POST',
+    }).then(response => response.text())
+      .then(data => console.log(data));
+  }
+}
+
+// Add event listeners for focus and blur events directly on input fields
+document.querySelectorAll("input, textarea").forEach((input) => {
+  input.addEventListener("focus", checkFocus);
+  input.addEventListener("blur", checkFocus);
+});
