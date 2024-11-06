@@ -25,12 +25,9 @@ def start_http_server():
 def start_electron_app():
     # Wait a few seconds for the HTTP server to be ready
     time.sleep(2)
-
-    # Set the environment variable to force software rendering
-    os.environ['ELECTRON_ENABLE_SOFTWARE_RASTERIZER'] = '1'
     
-    # Launch Electron app (assuming 'electron' is installed globally)
-    electron_process = subprocess.Popen(['electron', 'main.js'])
+    # Launch Electron app with the disable-gpu flag
+    electron_process = subprocess.Popen(['electron', '--disable-gpu', 'main.js'])
     
     # Wait until Electron app is closed
     electron_process.communicate()
