@@ -21,21 +21,20 @@ async function fetchIngredients() {
       checkbox.type = "checkbox";
       checkbox.classList.add("checkbox");
 
-      // Add event listener to the checkbox
+      // Add event listener to the checkbox (inside fetchIngredients function)
       checkbox.addEventListener("change", () => {
-        const checkedCheckboxes =
-          document.querySelectorAll(".checkbox:checked");
+        const checkedCheckboxes = document.querySelectorAll(".checkbox:checked");
         if (checkedCheckboxes.length > 10) {
           checkbox.checked = false; // Prevent selection beyond 10
           alert("You can only select up to 10 ingredients."); // Optional: Alert the user
         } else {
-          updateSelectedCount();
+          updateSelectedCount(); // Update the selected count
         }
       });
 
       // Create the image element
       const img = document.createElement("img");
-      img.src = "img/ing2.gif"; // Change to dynamic source if needed
+      img.src = ingredient.IMAGE_URL || "img/ing2.gif"; // Use dynamic source if available, fallback to static
       img.alt = `Ingredient - ${ingredient.ING_Name}`;
 
       // Create the paragraph for ingredient name
@@ -74,14 +73,3 @@ function updateSelectedCount() {
   // Update the count display
   selectedCountElement.textContent = `${selectedCount}/10`;
 }
-
-// Add event listeners to checkboxes
-checkbox.addEventListener("change", () => {
-  const checkedCheckboxes = document.querySelectorAll(".checkbox:checked");
-  if (checkedCheckboxes.length > 10) {
-    checkbox.checked = false; // Prevent selection beyond 10
-    alert("You can only select up to 10 ingredients."); // Optional: Alert the user
-  } else {
-    updateSelectedCount();
-  }
-});

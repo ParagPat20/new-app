@@ -151,6 +151,7 @@ select {
   box-shadow: none;
   outline: none;
 }
+
 .search-box .searchbar p {
   width: 25%;
   text-align: right;

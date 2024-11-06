@@ -15,7 +15,9 @@ class CustomHandler(SimpleHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(b"Server shutting down...")
             print("Shutting down the server...")
+            httpd.shutdown()  # Graceful shutdown of the server
             os._exit(0)
+
 
 def start_http_server():
     global httpd
@@ -27,7 +29,7 @@ def start_electron_app():
     time.sleep(1)
     
     # Launch Electron app with the disable-gpu flag and other relevant flags
-    electron_process = subprocess.Popen(['electron', '--disable-gpu', '--no-sandbox', '--use-gl=swiftshader', 'main.js'])
+    electron_process = subprocess.Popen([r'C:\Users\LOQ\AppData\Roaming\npm\node_modules\electron\dist\electron.exe', '--disable-gpu', '--no-sandbox', '--use-gl=swiftshader', 'main.js'])
     
     # Wait until Electron app is closed
     electron_process.communicate()
