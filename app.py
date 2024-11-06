@@ -26,11 +26,12 @@ def start_electron_app():
     # Wait a few seconds for the HTTP server to be ready
     time.sleep(2)
     
-    # Launch Electron app with the disable-gpu flag
-    electron_process = subprocess.Popen(['electron', '--disable-gpu', '--no-sandbox', '--disable-software-rasterizer', 'main.js'])
+    # Launch Electron app with the disable-gpu flag and other relevant flags
+    electron_process = subprocess.Popen(['electron', '--disable-gpu', '--no-sandbox', '--use-gl=swiftshader', 'main.js'])
     
     # Wait until Electron app is closed
     electron_process.communicate()
+
 
 if __name__ == "__main__":
     # Start the HTTP server in a separate thread
