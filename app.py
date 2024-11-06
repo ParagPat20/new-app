@@ -16,12 +16,14 @@ class CustomHandler(SimpleHTTPRequestHandler):
 
         # Handling focus-in and focus-out events
         if self.path == '/focus-in':
-            self.execute_shell_script('keyboardstart.sh')
+            # Run the keyboardstart.sh script in a separate thread
+            threading.Thread(target=self.execute_shell_script, args=('keyboardstart.sh',)).start()
             self.send_response(200)
             self.end_headers()
             self.wfile.write(b"Focus-in event received, running keyboardstart.sh")
         elif self.path == '/focus-out':
-            self.execute_shell_script('keyboardstop.sh')
+            # Run the keyboardstop.sh script in a separate thread
+            threading.Thread(target=self.execute_shell_script, args=('keyboardstop.sh',)).start()
             self.send_response(200)
             self.end_headers()
             self.wfile.write(b"Focus-out event received, running keyboardstop.sh")
