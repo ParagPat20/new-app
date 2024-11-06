@@ -5,8 +5,8 @@ let mainWindow;
 
 function createWindow() {
   mainWindow = new BrowserWindow({
-    width: 800,  // You can leave the width and height properties if you want to control the size too
-    height: 600,
+    width: 1920,  // You can leave the width and height properties if you want to control the size too
+    height: 1080,
     fullscreen: false,  // This makes the window fullscreen
     webPreferences: {
       nodeIntegration: true,
