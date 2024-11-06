@@ -27,7 +27,7 @@ def start_electron_app():
     time.sleep(2)
     
     # Launch Electron app with the disable-gpu flag
-    electron_process = subprocess.Popen(['electron', '--disable-gpu', 'main.js'])
+    electron_process = subprocess.Popen(['electron', '--disable-gpu', '--no-sandbox', '--disable-software-rasterizer', 'main.js'])
     
     # Wait until Electron app is closed
     electron_process.communicate()
